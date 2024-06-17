@@ -1,1 +1,1 @@
-#Azure Monitor Scaled Metric Alerts
+# Azure Monitor Scaled Metric Alerts
