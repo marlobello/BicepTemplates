@@ -1,9 +1,9 @@
 using 'generic-metric-alertrule.bicep'
 
-param alertName  = 'sql-mem-westus-alertrule'
-param alertDescription = 'Alert rule for SQL memory across all subscriptions'
-param targetResourceType = 'Microsoft.Sql/servers/databases'
-param metricName = 'app_memory_percent'
+param alertName = 'vm-cpu-westus-alertrule'
+param alertDescription = 'Alert rule for vm cpu utilization across all subscriptions'
+param targetResourceType = 'Microsoft.Compute/virtualMachines'
+param metricName = 'Percentage CPU'
 param targetResourceRegion = 'westus'
 
 param targetResourceId = [
@@ -14,9 +14,9 @@ param targetResourceId = [
 param isEnabled = true
 param alertSeverity = 3
 param operator = 'GreaterThan'
-param threshold = 90
+param threshold = 80
 param timeAggregation = 'Average'
-param evaluationFrequency = 'PT1M'
+param evaluationFrequency = 'PT5M'
 param windowSize = 'PT5M'
 
 param dimensions = []

@@ -14,9 +14,9 @@ param targetResourceId = [
 param isEnabled = true
 param alertSeverity = 3
 param operator = 'LessThan'
-param evaluationFrequency = 'PT1M'
-param windowSize = 'PT5M'
 param threshold = 98
 param timeAggregation = 'Average'
+param evaluationFrequency = 'PT1M'
+param windowSize = 'PT5M'
 
 param dimensions = []

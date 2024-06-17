@@ -14,10 +14,10 @@ param targetResourceId = [
 param isEnabled = true
 param alertSeverity = 3
 param operator = 'GreaterThan'
-param evaluationFrequency = 'PT1H'
-param windowSize = 'P1D'
 param threshold = 0
 param timeAggregation = 'Count'
+param evaluationFrequency = 'PT1H'
+param windowSize = 'P1D'
 
 param dimensions = [
   {
