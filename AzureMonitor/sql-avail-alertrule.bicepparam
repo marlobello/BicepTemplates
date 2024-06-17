@@ -8,7 +8,6 @@ param metricName = 'availability'
 
 param targetResourceId = [
   '/subscriptions/4b9e0820-996e-403d-8872-12683a5c3729'
-  '/subscriptions/0bcdddd7-c81d-4da5-972e-a724a62bde47'
 ]
 
 param isEnabled = true
