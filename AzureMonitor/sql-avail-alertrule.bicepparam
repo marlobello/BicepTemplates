@@ -1,10 +1,10 @@
 using 'generic-metric-alertrule.bicep'
 
-param alertName  = 'sql-avail-westus-alertrule'
+param targetResourceRegion = 'eastus'
+param alertName  = 'sql-avail-${targetResourceRegion}-alertrule'
 param alertDescription = 'Alert rule for SQL availability across all subscriptions'
 param targetResourceType = 'Microsoft.Sql/servers/databases'
 param metricName = 'availability'
-param targetResourceRegion = 'westus'
 
 param targetResourceId = [
   '/subscriptions/4b9e0820-996e-403d-8872-12683a5c3729'

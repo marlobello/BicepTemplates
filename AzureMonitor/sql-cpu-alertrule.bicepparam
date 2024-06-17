@@ -1,10 +1,10 @@
 using 'generic-metric-alertrule.bicep'
 
-param alertName  = 'sql-cpu-westus-alertrule'
+param targetResourceRegion = 'eastus'
+param alertName  = 'sql-cpu-${targetResourceRegion}-alertrule'
 param alertDescription = 'Alert rule for SQL CPU across all subscriptions'
 param targetResourceType = 'Microsoft.Sql/servers/databases'
 param metricName = 'app_cpu_percent'
-param targetResourceRegion = 'westus'
 
 param targetResourceId = [
   '/subscriptions/4b9e0820-996e-403d-8872-12683a5c3729'
@@ -17,6 +17,6 @@ param operator = 'GreaterThan'
 param threshold = 80
 param timeAggregation = 'Average'
 param evaluationFrequency = 'PT1M'
-param dimensions = []
 param windowSize = 'PT5M'
 
+param dimensions = []

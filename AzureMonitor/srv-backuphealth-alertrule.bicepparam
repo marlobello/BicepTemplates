@@ -1,10 +1,10 @@
 using 'generic-metric-alertrule.bicep'
 
-param alertName = 'srv-backuphealth-westus-alertrule'
+param targetResourceRegion = 'eastus'
+param alertName = 'srv-backuphealth-${targetResourceRegion}-alertrule'
 param alertDescription = 'Alert rule for site recovery vault backups across all subscriptions'
 param targetResourceType = 'Microsoft.RecoveryServices/vaults'
 param metricName = 'BackupHealthEvent'
-param targetResourceRegion = 'westus'
 
 param targetResourceId = [
   '/subscriptions/4b9e0820-996e-403d-8872-12683a5c3729'
