@@ -27,7 +27,7 @@ resource sqlAvailMetricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
           name: '1st criterion'
           metricName: 'availability'
           operator: 'LessThan'
-          threshold: 98
+          threshold: 97
           timeAggregation: 'Average'
           criterionType: 'StaticThresholdCriterion'
         }
