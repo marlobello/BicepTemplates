@@ -26,8 +26,8 @@ To get started with these tools, clone this repository to your local machine or 
 ```powershell
 .\Create-Alerts.ps1 -AlertRuleSubscriptionName "MySubscription" -AlertRuleResourceGroupName "MyResourceGroup" -TargetSubscriptionFile "C:\subscriptions.txt" -TargetResourceRegion @("eastus", "westus")
 ```
-
-![example-alerts](http://x)
+### Example alerts created
+![example-alerts](https://github.com/marlobello/BicepTemplates/blob/main/AzureMonitor/example-alerts.png?raw=true)
 
 ## License
 
