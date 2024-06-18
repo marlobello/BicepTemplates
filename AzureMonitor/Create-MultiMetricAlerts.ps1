@@ -18,7 +18,7 @@ The path to a file containing a list of subscription IDs where the alert rule sh
 An array of regions where the alert rule should be applied.
 
 .EXAMPLE
-.\Create-Alerts.ps1 -AlertRuleSubscriptionName "MySubscription" -AlertRuleResourceGroupName "MyResourceGroup" -TargetSubscriptionFile "C:\subscriptions.txt" -TargetResourceRegion @("eastus", "westus")
+.\Create-MultiMetricAlerts.ps1 -AlertRuleSubscriptionName "MySubscription" -AlertRuleResourceGroupName "MyResourceGroup" -TargetSubscriptionFile "C:\subscriptions.txt" -TargetResourceRegion @("eastus", "westus")
 
 This example creates an alert rule in the specified subscription and resource group, targeting the subscriptions listed in "C:\subscriptions.txt" and in the "eastus" and "westus" regions.
 
@@ -42,23 +42,15 @@ param (
 
 )
 
-$context = Get-AzContext
-
-if(!$context)
-{
-    Write-Host "Please login to Azure"
-    Connect-AzAccount
-}
-
-$subids = Get-Content $TargetSubscriptionFile
-
 # login to Azure
 if(-not (Get-AzContext)) {
     Connect-AzAccount
 }
 
+$subids = Get-Content $TargetSubscriptionFile
+
 Select-AzSubscription -SubscriptionName $AlertRuleSubscriptionName
 
 ForEach ($region in $TargetResourceRegions) {
-    New-AzResourceGroupDeployment -Name "NewMultiAlertRule-$region" -ResourceGroupName $AlertRuleResourceGroupName -targetResourceRegion $region -targetResourceId $subids -TemplateFile .\baseline-metric-multi-alertrules.bicep
+    New-AzResourceGroupDeployment -Name "NewMultiAlertRule-$region" -ResourceGroupName $AlertRuleResourceGroupName -targetResourceRegion $region -targetResourceId $subids -TemplateFile .\baseline-multi-metric-alertrules.bicep
 }
