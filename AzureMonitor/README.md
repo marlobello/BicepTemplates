@@ -15,12 +15,12 @@ To get started with these tools, clone this repository to your local machine or 
 ### Prerequisites
 
 - PowerShell for running the provided scripts, PowerShell 7 is recommended
-- Relatively uptodate Azure Az modules installed and configured
+- Relatively up to date Azure Az modules installed and configured
 - Necessary Azure permissions to create and manage metric alerts
 
 ### Usage
 
-1. **Modify subscription-ids.txt**: Ensure that your target subscriptions are represented as "/subscriptions/GUID". One subscription per line
+1. **Modify subscription-ids.txt**: Ensure that your target subscriptions are represented as "/subscriptions/GUID" -- one subscription per line.
 2. **Customize baseline-metric-multi-alertrules.bicep**: The provided alert rules are only a sample of what is available. [Azure Monitor Baseline Alerts](https://aka.ms/amba) is a good reference to identify desired alert rules as well as copy the bicep text from. Remember that only metrics outlined [here](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-types#monitor-multiple-resources-with-one-alert-rule) are supported by this repo.
 3. **Run Create-Alerts.ps1**: Execute the PowerShell script with your specific parameters to create metric alerts in Azure Monitor.
 
