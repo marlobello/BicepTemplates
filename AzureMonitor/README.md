@@ -1,6 +1,6 @@
 # Azure Monitor Scaled Metric Alerts
 
-This repository contains scripts and configuration files designed to facilitate the creation and management of scaled metric alerts in Azure Monitor. These tools are intended for system administrators and DevOps professionals who need to automate the monitoring of Azure resources across multiple subscriptions and regions.
+This repository contains scripts and configuration files designed to facilitate the creation and management of scaled metric alerts in Azure Monitor. This tool can reduce the number of metric alerts that need to be created by an order of magnitude because it will create alerts for Azure resources across multiple subscriptions. It will also simply the process of creating identical alerts across multiple regions. All alerts will be created in a centralized resource group.
 
 ## Features
 
@@ -27,6 +27,7 @@ To get started with these tools, clone this repository to your local machine or 
 .\Create-Alerts.ps1 -AlertRuleSubscriptionName "MySubscription" -AlertRuleResourceGroupName "MyResourceGroup" -TargetSubscriptionFile "C:\subscriptions.txt" -TargetResourceRegion @("eastus", "westus")
 ```
 
+![example-alerts](http://x)
 
 ## License
 
