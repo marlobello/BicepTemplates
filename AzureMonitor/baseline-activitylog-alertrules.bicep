@@ -172,3 +172,95 @@ resource backupVaultDeleteAlertRule 'Microsoft.Insights/activityLogAlerts@2020-1
       }
   }
 }
+
+resource nsgModificationAlertRule 'Microsoft.Insights/activityLogAlerts@2020-10-01' = {
+  name: 'nsg-modification-alertrule'
+  location: 'global'
+  properties: {
+    description: 'NSG modification alert'
+    scopes: [
+      targetResourceId
+    ]
+    enabled: true
+    condition: {
+      allOf: [
+          {
+            field: 'category'
+            equals: 'Administrative'
+          }
+          {
+            field: 'status'
+            equals: 'Succeeded'
+          }
+          {
+            anyOf: [
+              {
+                field: 'operationName'
+                equals: 'Microsoft.Network/networkSecurityGroups/securityRules/write'
+              }
+              {
+                field: 'operationName'
+                equals: 'Microsoft.Network/networkSecurityGroups/securityRules/delete'
+              }
+              {
+                field: 'operationName'
+                equals: 'Microsoft.Network/networkSecurityGroups/delete'
+              }
+            ]
+          }
+      ]
+    }
+    actions: {
+        actionGroups: [
+          {
+            actionGroupId: actionGroupId
+            webhookProperties: {}
+          }
+        ]
+      }
+  }
+}
+
+resource sqlFwModificationAlertRule 'Microsoft.Insights/activityLogAlerts@2020-10-01' = {
+  name: 'sql-fw-modification-alertrule'
+  location: 'global'
+  properties: {
+    description: 'SQL Firewall modification alert'
+    scopes: [
+      targetResourceId
+    ]
+    enabled: true
+    condition: {
+      allOf: [
+          {
+            field: 'category'
+            equals: 'Administrative'
+          }
+          {
+            field: 'status'
+            equals: 'Succeeded'
+          }
+          {
+            anyOf: [
+              {
+                field: 'operationName'
+                equals: 'Microsoft.Sql/servers/firewallRules/write'
+              }
+              {
+                field: 'operationName'
+                equals: 'Microsoft.Sql/servers/firewallRules/delete'
+              }
+            ]
+          }
+      ]
+    }
+    actions: {
+        actionGroups: [
+          {
+            actionGroupId: actionGroupId
+            webhookProperties: {}
+          }
+        ]
+      }
+  }
+}

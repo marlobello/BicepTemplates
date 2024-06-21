@@ -51,5 +51,5 @@ ForEach ($subid in $subids) {
         New-AzResourceGroup -Name $TargetAlertRuleResourceGroupName -Location $TargetAlertRuleResourceGroupRegion
     }
 
-    New-AzResourceGroupDeployment -Name NewActivityLogsAlert -ResourceGroupname $TargetAlertRuleResourceGroupName -targetResourceId $subid -TemplateFile .\baseline-activitylog-multi-alertrules.bicep
+    New-AzResourceGroupDeployment -Name NewActivityLogsAlert -ResourceGroupname $TargetAlertRuleResourceGroupName -targetResourceId $subid -TemplateFile .\baseline-activitylog-alertrules.bicep
 }
